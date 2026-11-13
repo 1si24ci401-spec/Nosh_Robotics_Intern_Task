@@ -37,21 +37,26 @@ python src/ingest.py --limit 100
 ```
 
 ### 6. Run the Application
-You can run the assistant either via the **Interactive Browser Web UI** or the **Terminal CLI**:
+You have three convenient ways to run the project:
 
-#### Option A: Interactive Browser Web UI (Recommended for Interviews)
+#### Option A: One-Command All-Task Runner (Fastest for Interview Walkthrough)
+```bash
+python run_all.py
+```
+Executes demonstrations of **all tasks in sequence** with rich formatted tables and live multi-turn agent turns:
+- **Task 1:** Search (`penne pasta`), dietary refinement (`no dairy`), exact garlic & onion statistics (`7,637 / 124,483 = 6.13%`), and fewest steps tomato ranking.
+- **Task 2:** Pantry matching with scoring formula breakdown, follow-up exclusion (`Exclude eggs too`), and contradictory hard-constraint no-match verification.
+- **Task 3:** Evidence-based local dataset substitution mining for banana bread (without eggs) and pasta sauce (without dairy).
+- **Live Agent:** Live multi-turn interaction demonstrating session state retention and tool calling.
+
+#### Option B: Interactive Browser Web UI
 ```bash
 python web_app.py
 # Or: python app.py --web
 ```
-Open **`http://localhost:8000`** in any browser. Features:
-- 💬 **Live Chatbot Tab**: Multi-turn conversation with session state memory and one-click prompt suggestions.
-- 🔍 **Task 1 Playground Tab**: Instant SQLite FTS5 search + analytical dataset statistics calculator.
-- 🛒 **Task 2 Pantry Matcher Tab**: Interactive ingredient matching with explainable scoring formula breakdown.
-- 🔄 **Task 3 Substitution Tab**: Local dataset recipe mining for evidence-backed ingredient substitutions.
-- 📊 **Evaluation Tab**: Live benchmark scorecard from `EVAL_RESULTS.md`.
+Open **`http://localhost:8000`** in any browser.
 
-#### Option B: Terminal CLI Chatbot
+#### Option C: Terminal CLI Chatbot
 ```bash
 python app.py
 ```
@@ -68,6 +73,7 @@ python eval.py
 ## Project Structure
 
 ```
+├── run_all.py              # Single-command runner for all tasks in sequence
 ├── app.py                  # CLI chatbot interface (supports --web flag)
 ├── web_app.py              # Zero-dependency local browser Web UI (http.server)
 ├── eval.py                 # Reproducible evaluation suite (6 test scenarios)
